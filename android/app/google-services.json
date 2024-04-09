@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "642226040527",
+    "project_id": "lift-off-ff399",
+    "storage_bucket": "lift-off-ff399.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642226040527:android:6f137af048fb18da3fd1ba",
+        "android_client_info": {
+          "package_name": "com.example.fourth_step"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJHZXh2YGnz9qWTkXZT8sEpen1bXpRmnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642226040527:android:f62238fd8f7261093fd1ba",
+        "android_client_info": {
+          "package_name": "com.example.lift_off"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJHZXh2YGnz9qWTkXZT8sEpen1bXpRmnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
