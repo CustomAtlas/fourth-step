@@ -63,4 +63,6 @@ class CoreAuth {
   void clone() {
     debugPrint('fsdfd');
   }
+
+  void secondClone() {}
 }
