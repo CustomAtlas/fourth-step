@@ -1,4 +1,4 @@
-# fourth_step
+# Fourth step
 
 This is my fourth Flutter simple app with authentication on Firebase with flutter_bloc
 
