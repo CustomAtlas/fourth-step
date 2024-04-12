@@ -4,4 +4,4 @@ This is my fourth Flutter simple app with authentication on Firebase with flutte
 
 
 
-![Screenshot_1712910455](https://github.com/CustomAtlas/fourth-step/assets/165499054/ddcb6133-ad97-4a86-98f0-8df9dff5982e)
+![Screenshot_1712910631](https://github.com/CustomAtlas/fourth-step/assets/165499054/490b1586-633f-48e3-82fe-0d5295208522)
