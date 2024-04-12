@@ -30,6 +30,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     Emitter<AuthState> emit,
   ) async {
     try {
+      emit(AuthInProgress(progress: AuthVarProgrss.signInProgress));
       if (event.email.length < 4 ||
           !event.email.contains('@') ||
           !event.email.contains('.')) {
@@ -40,8 +41,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             emailError: null, passwordError: 'Password too short'));
         return;
       }
-
-      emit(AuthInProgress(progress: AuthVarProgrss.signInProgress));
 
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: event.email,
@@ -86,6 +85,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     Emitter<AuthState> emit,
   ) async {
     try {
+      emit(AuthInProgress(progress: AuthVarProgrss.logInProgress));
       if (event.email.length < 4 ||
           !event.email.contains('@') ||
           !event.email.contains('.')) {
@@ -97,7 +97,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         return;
       }
       final context = event.context;
-      emit(AuthInProgress(progress: AuthVarProgrss.logInProgress));
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: event.email,
         password: event.password,
