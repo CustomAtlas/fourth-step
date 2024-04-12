@@ -53,6 +53,7 @@ class _AuthFormWidgetState extends State<AuthFormWidget> {
                   TextFormField(
                     controller: controllerP,
                     cursorHeight: 20,
+                    obscureText: true,
                     decoration: InputDecoration(
                       labelText: 'Password',
                       errorText: passwordError,

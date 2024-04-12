@@ -1,12 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fourth_step/domain/core.dart';
 
-class MyAuth implements CoreAuthModel {
-  @override
+class MyAuth {
+  String? emailError;
+  String? passwordError;
+  bool hasException = false;
+
   Future<void> signIn({
     required String email,
     required String password,
-    required String? error,
   }) async {
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -14,19 +15,20 @@ class MyAuth implements CoreAuthModel {
         password: password,
       );
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        error = 'The password provided is too weak.';
-      } else if (e.code == 'email-already-in-use') {
-        error = 'The account already exists for that email.';
+      hasException = true;
+      if (e.code == 'email-already-in-use') {
+        emailError = 'The account already exists for that email.';
+        passwordError = null;
+      } else {
+        emailError = e.message.toString();
+        passwordError = e.message.toString();
       }
     }
   }
 
-  @override
   Future<void> logIn({
     required String email,
     required String password,
-    required String? error,
   }) async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -34,15 +36,20 @@ class MyAuth implements CoreAuthModel {
         password: password,
       );
     } on FirebaseAuthException catch (e) {
+      hasException = true;
       if (e.code == 'user-not-found') {
-        error = 'No user found for that email.';
+        emailError = 'No user found for that email.';
+        passwordError = null;
       } else if (e.code == 'wrong-password') {
-        error = 'Wrong password provided for that user.';
+        emailError = null;
+        passwordError = 'Wrong password provided for that user.';
+      } else {
+        emailError = e.message.toString();
+        passwordError = e.message.toString();
       }
     }
   }
 
-  @override
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
   }
